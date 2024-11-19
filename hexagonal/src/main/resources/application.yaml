@@ -1,0 +1,10 @@
+consulting:
+  client:
+    address:
+      url: http://localhost:8082/address
+
+spring:
+  application:
+    name: hexagonal
+
+
