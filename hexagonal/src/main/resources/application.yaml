@@ -7,4 +7,6 @@ spring:
   application:
     name: hexagonal
 
-
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/hexagonal
