@@ -1,0 +1,14 @@
+package com.gabryel.hexagonal.adapter.out;
+
+import com.gabryel.hexagonal.application.core.domain.Customer;
+import com.gabryel.hexagonal.application.ports.out.FindCustomerByIdOutputPort;
+
+import java.util.Optional;
+
+public class FindCustomerByIdAdapter implements FindCustomerByIdOutputPort {
+
+    @Override
+    public Optional<Customer> find(String id) {
+        return Optional.empty();
+    }
+}
