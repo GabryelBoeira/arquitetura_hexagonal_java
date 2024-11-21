@@ -1,6 +1,7 @@
 package com.gabryel.hexagonal.adapter.in.controller.mapper;
 
 import com.gabryel.hexagonal.adapter.in.controller.request.CustomerRequest;
+import com.gabryel.hexagonal.adapter.in.controller.response.CustomerResponse;
 import com.gabryel.hexagonal.application.core.domain.Customer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,5 +20,13 @@ public interface CustomerMapper {
     @Mapping(target = "address", ignore = true)
     @Mapping(target = "isValidCpf", ignore = true)
     Customer toCustomer(CustomerRequest customerRequest);
+
+    /**
+     * Maps a {@link Customer} domain object to a {@link CustomerResponse} object.
+     *
+     * @param customer the customer domain object containing data to map
+     * @return the mapped customer response object
+     */
+    CustomerResponse toCustomerResponse(Customer customer);
 
 }

@@ -1,6 +1,5 @@
 package com.gabryel.hexagonal.adapter.out;
 
-import com.gabryel.hexagonal.adapter.in.controller.mapper.CustomerMapper;
 import com.gabryel.hexagonal.adapter.out.repository.CustomerRepository;
 import com.gabryel.hexagonal.adapter.out.repository.mapper.CustomerEntityMapper;
 import com.gabryel.hexagonal.application.core.domain.Customer;
