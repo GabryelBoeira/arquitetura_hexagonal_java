@@ -5,6 +5,7 @@ import com.gabryel.hexagonal.adapter.in.controller.request.CustomerRequest;
 import com.gabryel.hexagonal.adapter.in.controller.response.CustomerResponse;
 import com.gabryel.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.gabryel.hexagonal.application.ports.in.InsertCustomerInputPort;
+import com.gabryel.hexagonal.application.ports.in.UpdateCustomerInputPort;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class CustomerController {
 
     private final InsertCustomerInputPort insertCustomerInputPort;
     private final FindCustomerByIdInputPort findCustomerByIdInputPort;
+    private final UpdateCustomerInputPort updateCustomerInputPort;
     private final CustomerMapper customerMapper;
-
 
     @PostMapping
     public ResponseEntity<Void> save(@Valid @RequestBody CustomerRequest customerRequest) {
@@ -34,4 +35,13 @@ public class CustomerController {
         var customer = findCustomerByIdInputPort.find(id);
         return ResponseEntity.ok().body(customerMapper.toCustomerResponse(customer));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable("id") String id, @Valid @RequestBody CustomerRequest customerRequest) {
+        var customer = customerMapper.toCustomer(customerRequest);
+        customer.setId(id);
+        updateCustomerInputPort.update(customer, customerRequest.zipCode());
+        return ResponseEntity.noContent().build();
+    }
+
 }
