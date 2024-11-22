@@ -3,7 +3,6 @@ package com.gabryel.hexagonal.adapter.in.controller;
 import com.gabryel.hexagonal.adapter.in.controller.mapper.CustomerMapper;
 import com.gabryel.hexagonal.adapter.in.controller.request.CustomerRequest;
 import com.gabryel.hexagonal.adapter.in.controller.response.CustomerResponse;
-import com.gabryel.hexagonal.application.ports.in.DeleteCustomerByIdInputPort;
 import com.gabryel.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.gabryel.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.gabryel.hexagonal.application.ports.in.UpdateCustomerInputPort;
@@ -20,7 +19,6 @@ public class CustomerController {
     private final InsertCustomerInputPort insertCustomerInputPort;
     private final FindCustomerByIdInputPort findCustomerByIdInputPort;
     private final UpdateCustomerInputPort updateCustomerInputPort;
-    private final DeleteCustomerByIdInputPort deleteCustomerByIdInputPort;
     private final CustomerMapper customerMapper;
 
     @PostMapping
@@ -48,7 +46,7 @@ public class CustomerController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") String id) {
-        deleteCustomerByIdInputPort.delete(id);
+        updateCustomerInputPort.delete(id);
         return ResponseEntity.noContent().build();
     }
 
