@@ -9,11 +9,11 @@ import com.gabryel.hexagonal.application.ports.out.UpdateCustomerOutputPort;
 public class UpdateCustomerUseCase implements UpdateCustomerInputPort {
 
     private final FindAddressByZipCodeOutputPort findAddress;
-    private final FindCustomerByIdInputPort findCustomerByIdInputPort;
     private final UpdateCustomerOutputPort updateCustomerOutputPort;
+    private final FindCustomerByIdInputPort findCustomerByIdInputPort;
 
-    public UpdateCustomerUseCase(FindAddressByZipCodeOutputPort findAddress,
-                                 FindCustomerByIdUseCase findCustomerByIdInputPort,
+    public UpdateCustomerUseCase(FindCustomerByIdInputPort findCustomerByIdInputPort,
+                                 FindAddressByZipCodeOutputPort findAddress,
                                  UpdateCustomerOutputPort updateCustomerOutputPort) {
         this.findAddress = findAddress;
         this.findCustomerByIdInputPort = findCustomerByIdInputPort;
