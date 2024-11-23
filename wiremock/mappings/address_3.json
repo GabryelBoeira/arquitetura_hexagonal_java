@@ -1,0 +1,17 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/address/82990300"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "street": "Rua Abigail de Mello Zanetti",
+            "city": "Curitiba",
+            "state": "Paraná"
+        }
+    }
+}
