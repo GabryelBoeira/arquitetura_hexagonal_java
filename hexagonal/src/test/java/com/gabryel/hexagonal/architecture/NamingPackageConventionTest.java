@@ -14,15 +14,15 @@ public class NamingPackageConventionTest {
             .that()
             .haveNameMatching(".*Consumer")
             .should()
-            .resideInAPackage("..adapters.in.consumer")
-            .as("Consumer classes should reside inside consumer package in adapters.in package");
+            .resideInAPackage("..adapter.in.consumer")
+            .as("Consumer classes should reside inside consumer package in adapter.in package");
 
     @ArchTest
     public static final ArchRule mapper_reside_only_mapper_package = classes()
             .that()
             .haveNameMatching(".*Mapper")
             .should()
-            .resideInAnyPackage("..adapters.in.consumer.mapper", "..adapters.in.controller.mapper", "..adapters.out.client.mapper", "..adapters.out.repository.mapper")
+            .resideInAnyPackage("..adapter.in.consumer.mapper", "..adapter.in.controller.mapper", "..adapter.out.client.mapper", "..adapter.out.repository.mapper")
             .as("Mapper classes should reside inside mapper package in controller, client, consumer or repository packages");
 
     @ArchTest
@@ -30,7 +30,7 @@ public class NamingPackageConventionTest {
             .that()
             .haveNameMatching(".*Message")
             .should()
-            .resideInAPackage("..adapters.in.consumer.message")
+            .resideInAPackage("..adapter.in.consumer.message")
             .as("Message classes should reside inside message package in consumer package");
 
     @ArchTest
@@ -38,15 +38,15 @@ public class NamingPackageConventionTest {
             .that()
             .haveNameMatching(".*Controller")
             .should()
-            .resideInAPackage("..adapters.in.controller")
-            .as("Controller classes should reside inside controller package in adapters.in package");
+            .resideInAPackage("..adapter.in.controller")
+            .as("Controller classes should reside inside controller package in adapter.in package");
 
     @ArchTest
     public static final ArchRule request_reside_only_request_package = classes()
             .that()
             .haveNameMatching(".*Request")
             .should()
-            .resideInAnyPackage("..adapters.in.controller.request", "..adapters.out.client.request")
+            .resideInAnyPackage("..adapter.in.controller.request", "..adapter.out.client.request")
             .as("Request classes should reside inside request package in controller or client packages");
 
     @ArchTest
@@ -54,7 +54,7 @@ public class NamingPackageConventionTest {
             .that()
             .haveNameMatching(".*Response")
             .should()
-            .resideInAnyPackage("..adapters.in.controller.response", "..adapters.out.client.response")
+            .resideInAnyPackage("..adapter.in.controller.response", "..adapter.out.client.response")
             .as("Response classes should reside inside response package in controller or client packages");
 
     @ArchTest
@@ -62,31 +62,31 @@ public class NamingPackageConventionTest {
             .that()
             .haveNameMatching(".*Adapter")
             .should()
-            .resideInAPackage("..adapters.out")
-            .as("Adapter classes should reside inside out package in adapters package");
+            .resideInAPackage("..adapter.out")
+            .as("Adapter classes should reside inside out package in adapter package");
 
     @ArchTest
     public static final ArchRule client_reside_only_client_package = classes()
             .that()
             .haveNameMatching(".*Client")
             .should()
-            .resideInAPackage("..adapters.out.client")
-            .as("Client classes should reside inside client package in adapters.out package");
+            .resideInAPackage("..adapter.out.client")
+            .as("Client classes should reside inside client package in adapter.out package");
 
     @ArchTest
     public static final ArchRule repository_reside_only_repository_package = classes()
             .that()
             .haveNameMatching(".*Repository")
             .should()
-            .resideInAPackage("..adapters.out.repository")
-            .as("Repository classes should reside inside repository package in adapters.out package");
+            .resideInAPackage("..adapter.out.repository")
+            .as("Repository classes should reside inside repository package in adapter.out package");
 
     @ArchTest
     public static final ArchRule entity_reside_only_entity_package = classes()
             .that()
             .haveNameMatching(".*Entity")
             .should()
-            .resideInAPackage("..adapters.out.repository.entity")
+            .resideInAPackage("..adapter.out.repository.entity")
             .as("Entity classes should reside inside entity package in entity package");
 
     @ArchTest
@@ -110,7 +110,7 @@ public class NamingPackageConventionTest {
             .that()
             .haveNameMatching(".*OutputPort")
             .should()
-            .resideInAPackage("..application.ports.out")
+            .resideInAnyPackage("..application.ports.out", "..application.ports.out.kafka")
             .as("OutputPort classes should reside inside ports.out package in application package");
 
 }
