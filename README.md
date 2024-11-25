@@ -8,3 +8,7 @@ Aprenda na prática como aplicar a arquitetura hexagonal em microsserviços util
 - Melhorar organização dos pacotes.
 - Trabalhar mensageria com Apache Kafka.
 - Banco de dados NoSQL - MongoDB.
+
+[Certificado de conclusão do curso](https://www.udemy.com/certificate/UC-a6b9b3a4-a1c8-436b-afcb-8cc31485e68f/)
+
+**__ Curos Concluido __** 
